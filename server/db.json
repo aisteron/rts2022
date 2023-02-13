@@ -1,0 +1,17 @@
+{
+    "products":[
+    {
+        "id":1,
+        "title": "Huawei Mate 50 Pro",
+        "price": 3300,
+        "stock":  2,
+        "img": "https://content2.onliner.by/catalog/device/main/403bd56b75b8bdacb5a250150eca6831.jpeg"
+    },
+    {
+        "id":2,
+        "title": "HONOR 70",
+        "price": 1350,
+        "stock":  1,
+        "img": "https://content2.onliner.by/catalog/device/main/5238e392211ecea0f6e2747bec5c8b4e.jpeg"
+    }]
+}

@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Product } from './components/Product';
 
-function App() {
+import {useEffect, useState} from 'react'
+import axios from 'axios';
+import { IProduct } from './models/Products';
+
+function App(){
+
+  const [products, setProducts] = useState<IProduct[]>([])
+
+  async function getProducts(){
+    let response = await axios.get<IProduct[]>("http://localhost:3001/products")
+    setProducts(response.data)
+  }
+
+  useEffect(()=>{
+    getProducts()
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="md:container md:mx-auto mt-3 flex">
+      {products.map(el => <Product product={el} key={el.id}/>)}
     </div>
-  );
+  )
 }
 
 export default App;
